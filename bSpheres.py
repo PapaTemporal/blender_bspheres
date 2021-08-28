@@ -19,7 +19,7 @@ bl_info = {
     'name': 'bSpheres',
     'category': 'All',
     'author': 'Abinadi Cordova',
-    'version': (0, 0, 2),
+    'version': (0, 0, 3),
     'blender': (2, 93, 3),
     'location': '3D_Viewport window -> N-Panel > bSpheres',
     'description': 'bSpheres'

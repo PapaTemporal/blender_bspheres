@@ -17,7 +17,7 @@ bl_info = {
     'author': 'Abinadi Cordova',
     'description': 'This addon takes the blender traditional way of creating base meshes and fleshes it out to seem more like zSpheres',
     'blender': (2, 93, 3),
-    'version': (0, 0, 2),
+    'version': (0, 0, 3),
     'location': '3D View > Panels > bSpheres',
 }
 
