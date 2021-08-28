@@ -19,8 +19,8 @@ bl_info = {
     'name': 'bSpheres',
     'category': 'All',
     'author': 'Abinadi Cordova',
-    'version': (0, 0, 1),
-    'blender': (2, 80, 0),
+    'version': (0, 0, 2),
+    'blender': (2, 93, 3),
     'location': '3D_Viewport window -> N-Panel > bSpheres',
     'description': 'bSpheres'
 }
@@ -65,9 +65,14 @@ class applyBSphereModifiers(bpy.types.Operator):
  
     def execute(self, context):
         bpy.ops.object.mode_set(mode='OBJECT')
-        bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Mirror")
-        bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Skin")
-        bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Subdivision")
+        if bpy.app.version < (2, 93, 0):
+            bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Mirror")
+            bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Skin")
+            bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Subdivision")
+        else:
+            bpy.ops.object.modifier_apply(modifier="Mirror")
+            bpy.ops.object.modifier_apply(modifier="Skin")
+            bpy.ops.object.modifier_apply(modifier="Subdivision")
         context.space_data.shading.show_xray = False
         obj = context.object
         bpy.ops.object.mode_set(mode=bpy.data.scenes['Scene']['previous_mode'])
